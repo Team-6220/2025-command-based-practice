@@ -61,7 +61,7 @@ public class V2_SparkMaxWristSubsystem extends SubsystemBase {
   private final AbsoluteEncoder wristEncoder;
 
   public V2_SparkMaxWristSubsystem() {
-    wristMotor = new SparkMax(WristConstants.WristMotorID, MotorType.kBrushless);
+    wristMotor = new SparkMax(WristConstants.WristMotorID, MotorType.kBrushed);
 
     wristMotorConfig
         .inverted(WristConstants.motorInverted)
@@ -136,7 +136,7 @@ public class V2_SparkMaxWristSubsystem extends SubsystemBase {
   }
 
   public void setGoal(double goal) {
-    resetPID();
+    // resetPID();
 
     if (goal > WristConstants.wristMaxDegrees) {
       goal = WristConstants.wristMaxDegrees;

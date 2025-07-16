@@ -3,7 +3,7 @@ package frc.robot;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 
 public final class WristConstants {
-  public static final int WristMotorID = 17;
+  public static final int WristMotorID = 18;
   public static final boolean motorInverted = false;
   public static final IdleMode wristIdleMode = IdleMode.kBrake;
 
