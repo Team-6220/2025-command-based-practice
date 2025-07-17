@@ -33,7 +33,11 @@ public class ManuelSpinMotorCmd extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+<<<<<<< HEAD
     wristSubsystem.simpleDrive(OIConstants.normalizeAxis(joystick.getLeftY()));;
+=======
+    wristSubsystem.simpleDrive(OIConstants.normalizeAxis(joystick.getY())*2);
+>>>>>>> 0ca1b3919823e9aa1de0176e8f88cd27d3aecc35
   }
 
   // Called once the command ends or is interrupted.
