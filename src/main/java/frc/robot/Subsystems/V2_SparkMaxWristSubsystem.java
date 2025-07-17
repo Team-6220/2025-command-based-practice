@@ -61,7 +61,7 @@ public class V2_SparkMaxWristSubsystem extends SubsystemBase {
   private final AbsoluteEncoder wristEncoder;
 
   public V2_SparkMaxWristSubsystem() {
-    wristMotor = new SparkMax(WristConstants.WristMotorID, MotorType.kBrushed);
+    wristMotor = new SparkMax(WristConstants.WristMotorID, MotorType.kBrushless);
 
     wristMotorConfig
         .inverted(WristConstants.motorInverted)
@@ -163,6 +163,7 @@ public class V2_SparkMaxWristSubsystem extends SubsystemBase {
     SmartDashboard.putNumber("Wrst FF output", feedForwardOutput);
     SmartDashboard.putNumber("Wrist PID out", PIDOutput);
     SmartDashboard.putNumber("wrist overall output", calculatedSpeed);
+    SmartDashboard.putNumber("wrist tempt", wristMotor.getMotorTemperature());
     wristMotor.setVoltage(calculatedSpeed);
   }
 
