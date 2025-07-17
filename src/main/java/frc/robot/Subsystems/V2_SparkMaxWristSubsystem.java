@@ -179,7 +179,7 @@ public class V2_SparkMaxWristSubsystem extends SubsystemBase {
   /** Driving in Decimal Perent */
   public void simpleDrive(double motorOutput) {
     SmartDashboard.putNumber("manuel output", motorOutput);
-    wristMotor.setVoltage(motorOutput);
+    wristMotor.set(motorOutput);
   }
 
   public boolean wristAtGoal() {

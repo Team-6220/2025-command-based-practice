@@ -8,6 +8,7 @@ import com.ctre.phoenix6.configs.MotorOutputConfigs;
 
 import edu.wpi.first.wpilibj.AddressableLED;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.OIConstants;
 import frc.robot.Subsystems.MotorSubsystem;
@@ -18,8 +19,8 @@ public class ManuelSpinMotorCmd extends Command {
   /** Creates a new ManuelSpinMotorCmd. */
   V2_SparkMaxWristSubsystem wristSubsystem = V2_SparkMaxWristSubsystem.getInstance();
 
-  Joystick joystick;
-  public ManuelSpinMotorCmd(Joystick joystick) {
+  XboxController joystick;
+  public ManuelSpinMotorCmd(XboxController joystick) {
     this.joystick = joystick;
     addRequirements(wristSubsystem);
     // Use addRequirements() here to declare subsystem dependencies.
@@ -32,7 +33,7 @@ public class ManuelSpinMotorCmd extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    wristSubsystem.simpleDrive(OIConstants.normalizeAxis(joystick.getY()));;
+    wristSubsystem.simpleDrive(OIConstants.normalizeAxis(joystick.getLeftY()));;
   }
 
   // Called once the command ends or is interrupted.
