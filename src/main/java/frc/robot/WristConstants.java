@@ -7,7 +7,7 @@ public final class WristConstants {
   public static final boolean motorInverted = false;
   public static final IdleMode wristIdleMode = IdleMode.kBrake;
 
-  public static final boolean encoderInverted = false;
+  public static final boolean encoderInverted = true;
   /*on branch tune_lower_intake PID&FF start (not really tuned) */
   // public static final int stallLimit = 10;
   // public static final int freeLimit = 10;
@@ -32,12 +32,12 @@ public final class WristConstants {
   public static final int stallLimit = 5;
   public static final int freeLimit = 20;
 
-  public static final double kP = 0.01, kI = 0, kD = 0.0, izone = 45, tolerance = 1.0;
+  public static final double kP = 0.03, kI = 0.01, kD = 0.0, izone = 20, tolerance = 1.0;
   public static final double kS = 0, kG = 0, kV = 0, kA = 0;
   public static final double allowedClosedLoopError = 0.5;
-  public static final double maxAcceleration = 50,
+  public static final double maxAcceleration = 720,
       maxVelocity =
-          1; // Accelaration is in units of RPM per Second (RPM/s) & Maximum Velocity is in
+          360; // Accelaration is in units of RPM per Second (RPM/s) & Maximum Velocity is in
   // units of Revolutions per Minute (RPM)
   public static final double wristMaxDegrees = 87, wristMinDegrees = -144;
   /*on branch scrimage v2 PID&FF end (not really tuned) */
