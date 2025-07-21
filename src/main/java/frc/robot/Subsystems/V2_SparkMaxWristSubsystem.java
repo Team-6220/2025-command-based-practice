@@ -72,7 +72,7 @@ public class V2_SparkMaxWristSubsystem extends SubsystemBase {
         .inverted(WristConstants.encoderInverted)
         .positionConversionFactor(
             360) // basically this turns the encoder reading from radians to degrees
-        .zeroOffset(0.7785330) //TODO: change this
+        .zeroOffset(0.7014595) //TODO: change this
         .zeroCentered(true);
 
     // wristMotorConfig.absoluteEncoder.zeroOffset(.2);//Don't know if we need this
@@ -163,6 +163,7 @@ public class V2_SparkMaxWristSubsystem extends SubsystemBase {
     SmartDashboard.putNumber("Wrst FF output", feedForwardOutput);
     SmartDashboard.putNumber("Wrist PID out", PIDOutput);
     SmartDashboard.putNumber("wrist overall output", calculatedSpeed);
+    SmartDashboard.putBoolean("wrist at setpoint", m_Controller.atSetpoint());
     SmartDashboard.putNumber("wrist tempt", wristMotor.getMotorTemperature());
     wristMotor.setVoltage(calculatedSpeed);
   }

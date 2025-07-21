@@ -32,7 +32,7 @@ public final class WristConstants {
   public static final int stallLimit = 5;
   public static final int freeLimit = 20;
 
-  public static final double kP = 0.03, kI = 0.01, kD = 0.0, izone = 20, tolerance = 1.0;
+  public static final double kP = 0.026, kI = 0.02, kD = 0.0001, izone = 05, tolerance = 1.0;
   public static final double kS = 0, kG = 0, kV = 0, kA = 0;
   public static final double allowedClosedLoopError = 0.5;
   public static final double maxAcceleration = 720,

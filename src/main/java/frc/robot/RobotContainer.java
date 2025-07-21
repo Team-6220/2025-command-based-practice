@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Commands.ManuelSpinMotorCmd;
+import frc.robot.Commands.MoveWristTo90Cmd;
 import frc.robot.Commands.SpinToDegreeCmd;
 import frc.robot.Commands.TankDriveCmd;
 import frc.robot.Subsystems.DriveTrainSubsystem;
@@ -25,6 +26,7 @@ public class RobotContainer {
   public XboxController joystick = new XboxController(0);
 
   private final Trigger spinToDegree = new Trigger(()-> joystick.getAButton());
+  private final Trigger spinTo90 = new Trigger(()-> joystick.getBButton());
 
   public RobotContainer() {
     wristPIDTest.setDefaultCommand(new ManuelSpinMotorCmd(joystick));
@@ -35,6 +37,7 @@ public class RobotContainer {
 
   private void configureBindings() {
     spinToDegree.onTrue(new SpinToDegreeCmd());
+    spinTo90.onTrue(new MoveWristTo90Cmd());
   }
 
   public Command getAutonomousCommand() {
