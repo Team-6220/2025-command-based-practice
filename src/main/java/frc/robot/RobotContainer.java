@@ -12,12 +12,15 @@ import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Commands.ManuelSpinMotorCmd;
 import frc.robot.Commands.SpinToDegreeCmd;
+import frc.robot.Commands.TankDriveCmd;
+import frc.robot.Subsystems.DriveTrainSubsystem;
 import frc.robot.Subsystems.MotorSubsystem;
 import frc.robot.Subsystems.V2_SparkMaxWristSubsystem;
 
 public class RobotContainer {
 
   public V2_SparkMaxWristSubsystem wristPIDTest = V2_SparkMaxWristSubsystem.getInstance();
+  public DriveTrainSubsystem driveTrainSubsystem = DriveTrainSubsystem.getInstance();
 
   public XboxController joystick = new XboxController(0);
 
@@ -25,6 +28,8 @@ public class RobotContainer {
 
   public RobotContainer() {
     wristPIDTest.setDefaultCommand(new ManuelSpinMotorCmd(joystick));
+
+    driveTrainSubsystem.setDefaultCommand(new TankDriveCmd((joystick)));
     configureBindings();
   }
 
