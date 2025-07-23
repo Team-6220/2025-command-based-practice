@@ -4,10 +4,9 @@
 
 package frc.robot.Subsystems;
 
-import com.ctre.phoenix.motorcontrol.can.TalonSRXConfiguration;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.VictorSPXConfiguration;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.DrivetrainConstants;
 
@@ -15,35 +14,41 @@ public class DriveTrainSubsystem extends SubsystemBase{
   private static DriveTrainSubsystem INSTANCE = null;
 
   private String tableKey = "DriveTrain_";
-  TalonSRXConfiguration driveMotorConfig = new TalonSRXConfiguration();
-  WPI_TalonSRX leftMain = new WPI_TalonSRX(DrivetrainConstants.LEFTMAIN_ID);
-  WPI_TalonSRX leftFollower = new WPI_TalonSRX(DrivetrainConstants.LEFTFOLLOWER_ID);
+  VictorSPXConfiguration leftDriveMotorConfig = new VictorSPXConfiguration();
+  VictorSPXConfiguration rightDriveMotorConfig = new VictorSPXConfiguration();
+  WPI_VictorSPX leftMain = new WPI_VictorSPX(DrivetrainConstants.LEFTMAIN_ID);
+  WPI_VictorSPX leftFollower = new WPI_VictorSPX(DrivetrainConstants.LEFTFOLLOWER_ID);
 
-  WPI_TalonSRX rightMain = new WPI_TalonSRX(DrivetrainConstants.RIGHTMAIN_ID);
-  WPI_TalonSRX rightFollower = new WPI_TalonSRX(DrivetrainConstants.RIGHTFOLLOWER_ID);
+  WPI_VictorSPX rightMain = new WPI_VictorSPX(DrivetrainConstants.RIGHTMAIN_ID);
+  WPI_VictorSPX rightFollower = new WPI_VictorSPX(DrivetrainConstants.RIGHTFOLLOWER_ID);
 
 
   public DriveTrainSubsystem() {
     leftFollower.follow(leftMain);
     rightFollower.follow(rightMain);
 
-    driveMotorConfig.continuousCurrentLimit = DrivetrainConstants.DRIVETRAINCURRENTLIMIT_AMPS;
-    leftMain.configAllSettings(driveMotorConfig);
-    leftMain.configAllSettings(driveMotorConfig);
+    // driveMotorConfig. = DrivetrainConstants.DRIVETRAINCURRENTLIMIT_AMPS;
+    // leftMain.configAllSettings(driveMotorConfig);
+    // rightMain.configAllSettings(driveMotorConfig);
   }
 
   @Override
   public void periodic() {
-    SmartDashboard.putNumber(tableKey +"left main temp", leftMain.getTemperature());
-    SmartDashboard.putNumber(tableKey +"left follower temp", leftFollower.getTemperature());
-    SmartDashboard.putNumber(tableKey +"right main temp", rightMain.getTemperature());
-    SmartDashboard.putNumber(tableKey +"right follower temp", rightFollower.getTemperature());
+    // SmartDashboard.putNumber(tableKey +"left main temp", leftMain.getTemperature());
+    // SmartDashboard.putNumber(tableKey +"left follower temp", leftFollower.getTemperature());
+    // SmartDashboard.putNumber(tableKey +"left follower2 temp", leftFollower2.getTemperature());
+    // SmartDashboard.putNumber(tableKey +"right main temp", rightMain.getTemperature());
+    // SmartDashboard.putNumber(tableKey +"right follower temp", rightFollower.getTemperature());
+    // SmartDashboard.putNumber(tableKey +"right follower2 temp", rightFollower2.getTemperature());
 
     // This method will be called once per scheduler run
   }
   public void tankDrive(double left, double right)
   {
-    leftMain.set(left);
+    System.out.println("left:" + left + "right" + right);
+    left = left > 0.95 ? 0.95 : left < -0.95 ? -0.95 : left;
+    right = right > 0.95 ? 0.95 : right < -0.95 ? -0.95 : right;
+    leftMain.set(-left);
     rightMain.set(right);
   }
 
