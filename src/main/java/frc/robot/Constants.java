@@ -16,21 +16,12 @@ import frc.lib.util.TunableNumber;
 
 public final class Constants {
 
-  public final TunableNumber autoMaxVelocity =
-      new TunableNumber("autoMaxVelocity", 0);
-  public final TunableNumber autoMaxAcceleratMpsSq =
-      new TunableNumber("autoMaxAcceleratMpsSq", 0);
-  public final TunableNumber maxAngularVelocityRps =
-      new TunableNumber("maxAngularVelocityRps", 0);
-  public final TunableNumber maxAngularAcceleratRpsSq =
-      new TunableNumber("maxAngularAcceleratRpsSq", 0);
-
   public static boolean TUNING_MODE = true;
 
   public static Optional<DriverStation.Alliance> ALLIANCE_COLOR = DriverStation.getAlliance();
 
-  public static final Mass robotMass = Pound.of(140);
-  public static final MomentOfInertia robotMOI = KilogramSquareMeters.of(4.563);
+  public static final Mass ROBOT_MASS = Pound.of(140);
+  public static final MomentOfInertia ROBOT_MOI = KilogramSquareMeters.of(4.563);
 
-  public static String isRed = "N/A"; // FIXME: MAKE AUTO UPDATE ISRED
+  public static String IS_RED = "N/A"; // FIXME: MAKE AUTO UPDATE ISRED
 }

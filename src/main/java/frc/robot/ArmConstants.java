@@ -4,45 +4,45 @@
 
 package frc.robot;
 
+import com.ctre.phoenix6.signals.NeutralModeValue;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 
 /** Add your docs here. */
 public final class ArmConstants {
-      public static final int ArmMotorMainID = 18;
-      public static final int ArmMotorFollowerID = 18;
+  public static final int MAIN_MOTOR_ID = 18;
+  public static final int FOLLOWER_MOTOR_ID = 19;
 
-  public static final boolean mainMotorInverted = false;
-  public static final boolean followerMotorInverted = false;
+  public static final boolean MAIN_MOTOR_INVERTED = true;
+  public static final boolean FOLLOWER_MOTOR_INVERTED = false;
   
-  public static final IdleMode ArmIdleMode = IdleMode.kBrake;
+  public static final IdleMode ARM_IDLEMODE = IdleMode.kBrake;
 
-  public static final boolean encoderInverted = true;
-  /*on branch tune_lower_intake PID&FF start (not really tuned) */
-  // public static final int stallLimit = 10;
-  // public static final int freeLimit = 10;
+  public static final boolean ENCODER_INVERTED = true;
 
-  // public static final double kP = 0.00, kI = 0, kD = 0, izone = 2, tolerance = .5;
-  // public static final double kS = 0, kG = .19, kV = .53, kA = 0;
-  // public static final double allowedClosedLoopError = 0.5;
-  // public static final double maxAcceleration = 720, maxVelocity = 360;//Accelaration is in
-  // units of RPM per Second (RPM/s) & Maximum Velocity is in units of Revolutions per Minute
-  // (RPM)
-  // public static final double ArmMaxDegrees = 87, ArmMinDegrees = -144;
-  /*on branch tune_lower_intake PID&FF end (not really tuned) */
-  public static final double intakeSetpointDegree = 0;
-  public static final double outtakeSetpointDegree = 90;
-  public static final double coralStation = 35.81813;
 
-  public static final int stallLimit = 25;
-  public static final int freeLimit = 5;
+  public static final double INTAKE_SETPOINT_DEGREES = 0;
+  public static final double OUTTAKE_SETPOINT_DEGREES = 90;
+  public static final double IDLE_SETPOINT_DEGREES = 100;
+
+  public static final int STALL_LIMIT_AMP = 25;
+  public static final int FREE_LIMIT_AMP = 5;
 
   public static final double kP = 0.026, kI = 0.02, kD = 0.0001, izone = 05, tolerance = 1.0;
   public static final double kS = 0, kG = 0, kV = 0, kA = 0;
-  public static final double allowedClosedLoopError = 0.5;
-  public static final double maxAcceleration = 720,
-      maxVelocity =
+  public static final double ALLOWED_CLOSED_LOOP_ERROR = 0.5;
+  public static final double MAX_ACCELERATION = 720,
+      MAX_VELOCITY =
           360; // Accelaration is in units of RPM per Second (RPM/s) & Maximum Velocity is in
   // units of Revolutions per Minute (RPM)
-  public static final double ArmMaxDegrees = 120, ArmMinDegrees = 0;
-  /*on branch scrimage v2 PID&FF end (not really tuned) */
+  public static final double ARM_MAX_DEGREES = 120, ARM_MIN_DEGREES = 0;
+
+  public static final NeutralModeValue INTAKENEU_NEUTRAL_MODE = NeutralModeValue.Brake;
+  public static final int INTAKE_MOTOR_ID = 18;
+  public static final double EJECT_SPEED_PERCENT = -.1;
+  public static final double INTAKE_SPEED_PERCENT = .1;
+
+  public static final boolean CURRENT_LIMIT_ENABLED = true;
+  public static final double NORMAL_MAX_CURRENT = 20;
+  public static final double ABSOLUTE_MAX_CURRENT = 5;
+  public static final double ABSOLUTE_MAX_CURRENT_TIME = 1;
 }

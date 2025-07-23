@@ -4,20 +4,17 @@
 
 package frc.robot.Commands;
 
-import java.util.function.Supplier;
-
-import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.lib.util.TunableNumber;
+import frc.robot.ArmConstants;
 import frc.robot.Subsystems.ArmSubSystem;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
-public class ManuelArmCmd extends Command {
-  /** Creates a new ManuelArm. */
+public class IntakeCommand extends Command {
+  /** Creates a new IntakeCommand. */
   ArmSubSystem armSubSystem = ArmSubSystem.getInstance();
-  Supplier<Double> output;
-  public ManuelArmCmd(Supplier<Double> output) {
-    this.output = output;
+  private TunableNumber intakeDegrees = new TunableNumber("intake degrees", ArmConstants.INTAKE_SETPOINT_DEGREES);
+  public IntakeCommand() {
     addRequirements(armSubSystem);
     // Use addRequirements() here to declare subsystem dependencies.
   }
@@ -26,12 +23,17 @@ public class ManuelArmCmd extends Command {
   @Override
   public void initialize() {
     armSubSystem.resetPID();
+    armSubSystem.setGoal(intakeDegrees.getDefault());
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    armSubSystem.voltsDrive(output.get());
+    armSubSystem.driveToGoal();
+    if(intakeDegrees.hasChanged())
+    {
+      armSubSystem.setGoal(intakeDegrees.get());
+    }
   }
 
   // Called once the command ends or is interrupted.
