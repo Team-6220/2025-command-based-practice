@@ -37,7 +37,7 @@ public final class ArmConstants {
   public static final double ARM_MAX_DEGREES = 120, ARM_MIN_DEGREES = 0;
 
   public static final NeutralModeValue INTAKENEU_NEUTRAL_MODE = NeutralModeValue.Brake;
-  public static final int INTAKE_MOTOR_ID = 18;
+  public static final int INTAKE_MOTOR_ID = 15;
   public static final double EJECT_SPEED_PERCENT = -.1;
   public static final double INTAKE_SPEED_PERCENT = .1;
 
