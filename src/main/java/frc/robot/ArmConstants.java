@@ -12,7 +12,7 @@ public final class ArmConstants {
   public static final int MAIN_MOTOR_ID = 18;
   public static final int FOLLOWER_MOTOR_ID = 19;
 
-  public static final boolean MAIN_MOTOR_INVERTED = true;
+  public static final boolean MAIN_MOTOR_INVERTED = false;
   public static final boolean FOLLOWER_MOTOR_INVERTED = false;
   
   public static final IdleMode ARM_IDLEMODE = IdleMode.kBrake;

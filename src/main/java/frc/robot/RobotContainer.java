@@ -29,7 +29,7 @@ public class RobotContainer {
 
   public RobotContainer() {
     driveTrainSubsystem.setDefaultCommand(new TankDriveCmd(xboxController));
-    armSubSystem.setDefaultCommand(new ManuelArmAndIntakeCmd(() -> joystick.getY(), ()-> joystick.getRawAxis(2)));
+    armSubSystem.setDefaultCommand(new ManuelArmAndIntakeCmd(() -> joystick.getY(), ()-> joystick.getRawAxis(3)));
     // armSubSystem.setDefaultCommand(new IntakeIdleCmd());
     
     configureBindings();

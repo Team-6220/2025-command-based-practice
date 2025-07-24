@@ -82,10 +82,10 @@ public class ArmSubSystem extends SubsystemBase {
         .inverted(ArmConstants.MAIN_MOTOR_INVERTED)
         .smartCurrentLimit(ArmConstants.STALL_LIMIT_AMP, ArmConstants.FREE_LIMIT_AMP)
         .idleMode(ArmConstants.ARM_IDLEMODE);
-    mainArmMotorConfig
-    .encoder
-    .inverted(ArmConstants.ENCODER_INVERTED)
-    .positionConversionFactor(360);// basically this turns the encoder reading from radians to degrees
+    // mainArmMotorConfig
+    // .encoder
+    // .inverted(ArmConstants.ENCODER_INVERTED)
+    // .positionConversionFactor(360);// basically this turns the encoder reading from radians to degrees
             
     followerArmMotorConfig
         .inverted(ArmConstants.FOLLOWER_MOTOR_INVERTED)
@@ -165,6 +165,7 @@ public class ArmSubSystem extends SubsystemBase {
 //Arm methods start
   /** Driving in voltage */
   public void voltsDrive(double voltageOutput) {
+    voltageOutput *= 5;
       SmartDashboard.putNumber("manuel output (volts)", voltageOutput);
       SmartDashboard.putNumber("manuel output (percent)", -99999);
       armMotorMain.setVoltage(voltageOutput);
